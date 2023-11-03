@@ -45,8 +45,8 @@ class UsersView(ViewSet):
         return Response(user_serializer.data)
 
 
-@api_view(['GET'])
-@authentication_classes([JWTAuthentication])
-@permission_classes([IsAuthenticated, IsAllowed('users')])
-def show(request):
-    return Response('show')
+# @api_view(['GET'])
+# @authentication_classes([JWTAuthentication])
+# @permission_classes([IsAuthenticated, IsAllowed('users')])
+# def show(request):
+#     return Response('show')
