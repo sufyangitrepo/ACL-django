@@ -8,7 +8,6 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
-# from rest_framework.pagination import PageNumberPagination
 from ..models import AppUser
 from auth_app.serializers import (RegisterSerializer, GetUserSerializer)
 from common.custom_permissions import IsAllowed
@@ -43,10 +42,3 @@ class UsersView(ViewSet):
         users = AppUser.objects.all()
         user_serializer = GetUserSerializer(users, many=True)
         return Response(user_serializer.data)
-
-
-@api_view(['GET'])
-@authentication_classes([JWTAuthentication])
-@permission_classes([IsAuthenticated, IsAllowed('users')])
-def show(request):
-    return Response('show')
